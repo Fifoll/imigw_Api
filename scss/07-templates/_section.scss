@@ -1,0 +1,32 @@
+@use '../01-settings/' as *;
+
+.section {
+    position: relative;
+    padding-bottom: 2rem;
+    &::before {
+        content: '';
+        width: 100vw;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        right: 0;
+        z-index: -1;
+        transform: translate(-50%, 0);
+    }
+    &__search {
+        &::before {
+            background-color: $color-brown;
+        }
+    }
+
+
+    &__result {
+        &::before {
+            background-color: $color-grey;
+        }
+    }
+
+    &__heading {
+        padding-top: 3rem;
+    }
+}

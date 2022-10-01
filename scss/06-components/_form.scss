@@ -1,0 +1,33 @@
+@use '../01-settings/' as *;
+@use '../02-tools/' as *;
+.form {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    @include medium {
+        gap: 3rem;
+    }
+    &__input {
+        height: 4.8rem;
+        border-radius: 1.5rem;
+        padding: 1rem;
+        font-size: 1.8rem;
+        text-align: center;
+        border: 2px solid $color-black;
+        transition: .3s;
+        background-color: $color-white;
+
+        &--select {
+            width: 15rem;
+        }
+
+
+        &--submit {
+            width: 10rem;
+            &:hover{
+                background: transparent;
+                color: $color-white;
+            } 
+        }
+    }
+}

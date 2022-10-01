@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Imigw API</title>
+</head>
+<body>
+    
+<section class="section section__search container">
+    
+    <h1 class="section__heading heading--h1">Select your city</h1>
+    <form class="form">
+        <select class="form__input form__input--select">
+            <option>Select</option>
+            <option>Krakow</option>
+            <option>Białystok</option>
+        </select>
+        <input class="form__input form__input--submit" type="submit" value="Submit">
+    </form>
+</section>
+
+<section class="section section__result container">
+    <div class="row row__items row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <div class="item">
+            <div class="row">
+                <h2 class="heading--h2 col">Miasto</h2>
+                <p class="item__p--grey col"><span id="date">28-09.2022</span> | <span id="time">07:00</span></p>
+            </div>
+            <div class="row row__icon row-cols-2">
+                <p class="item__icon item__icon--temp">26 C</p>
+                <p class="item__icon item__icon--pressure">1000 hpa</p>
+                <p class="item__icon item__icon--wind">7 m/s</p>
+                <p class="item__icon item__icon--rain">brak</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>

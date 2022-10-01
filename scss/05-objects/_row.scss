@@ -1,0 +1,13 @@
+@use '../02-tools/' as *;
+
+.row {
+    &__items {
+        padding-top: 2rem;
+        @include medium {
+            gap: 2rem;
+        }
+    }
+    &__icon {
+        padding: 2rem;
+    }
+}

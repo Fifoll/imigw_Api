@@ -1,0 +1,50 @@
+@use '../01-settings/' as *;
+@use '../02-tools/' as *;
+
+.item {
+    border: 1px solid $color-brown;
+    background: $color-white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    height: 18rem;
+    width: 90%;
+    margin: 0 auto 4rem auto;
+    @include medium {
+        width: 30%;
+        margin: 0;
+        height: 20rem;
+    }
+    &__p--grey {
+        text-align: right;
+        font-size: 1.5rem;
+        color: $color-grey;
+    }
+    &__icon {
+        font-size: 2rem;
+        padding-left: 4rem;
+        position: relative;
+        margin-bottom: 4rem;
+        &::before{
+            content: '';
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        &--temp::before {
+            background: url('../../assets/thermometer.png') center/cover;
+        }
+        &--pressure::before {
+            background: url('../../assets/pressure.png') center/cover;
+        }
+        &--wind::before {
+            background: url('../../assets/wind.png') center/cover;
+        }
+        &--rain::before {
+            background: url('../../assets/rain.png') center/cover;
+        }
+    }
+    
+}
