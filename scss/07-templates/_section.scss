@@ -2,7 +2,6 @@
 
 .section {
     position: relative;
-    padding-bottom: 2rem;
     &::before {
         content: '';
         width: 100vw;
@@ -14,6 +13,10 @@
         transform: translate(-50%, 0);
     }
     &__search {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 30vh;
         &::before {
             background-color: $color-brown;
         }
@@ -21,12 +24,13 @@
 
 
     &__result {
+        min-height: 70vh;
         &::before {
             background-color: $color-grey;
         }
     }
 
-    &__heading {
-        padding-top: 3rem;
-    }
+    // &__heading {
+    //     padding-top: 3rem;
+    // }
 }

@@ -1,0 +1,110 @@
+'use strict';
+
+const baseUrl = 'https://danepubliczne.imgw.pl/api/data/synop/';
+
+const getCities = async e => {
+    try {
+        const response = await fetch(baseUrl);
+
+        const data = await response.json();
+
+        return data;
+    } 
+    catch(err) {
+
+        console.error(err);
+
+    }
+}
+
+getCities().then(data => {
+
+    const select = document.querySelector('.form__input--select');
+
+    for(let i=0; i<data.length; i++) {
+        const option = document.createElement('option');
+        option.innerHTML = data[i].stacja;
+        select.appendChild(option);
+    }
+
+}).catch((err) => console.error(err));
+
+
+const getWeather = async city => {
+    try {
+        const response = await fetch(`${baseUrl}station/${city}`);
+
+        const data = response.json();
+
+        return data;
+    }
+    catch(err) {
+        console.error(err);
+    }
+}
+
+const checkWeather = e => {
+    
+    e.preventDefault();
+    
+    const select = document.querySelector('.form__input--select');
+
+    const selectedIndex = select.selectedIndex;
+
+    const selectedValue = select.value
+    .toLowerCase()
+    .replace(/ +/g, "")
+    .replace('ą', 'a')
+    .replace('ę', 'e')
+    .replace('ł', 'l')
+    .replace('ć', 'c')
+    .replace('ń', 'n')
+    .replace('ó', 'o')
+    .replace('ś', 's')
+    .replace('ź', 'z')
+    .replace('ż', 'z');
+
+
+    if(!(selectedIndex === 0)) {
+        
+        getWeather(selectedValue).then(data => {
+
+            const { stacja } = data;
+            const { temperatura } = data;
+            const { cisnienie } = data;
+            const { predkosc_wiatru } = data;
+            const { suma_opadu } = data;
+            const { data_pomiaru } = data;
+            const { godzina_pomiaru } = data;
+
+            const opady = suma_opadu > 1 ? 'opady' : 'brak';
+
+            const godzina = godzina_pomiaru < 10 ? `0${godzina_pomiaru}:00` : `${godzina_pomiaru}:00`;
+
+            const item = document.createElement('div');
+            item.classList.add('item');
+            item.innerHTML = 
+            `
+                <div class="row">
+                    <h2 class="heading--h2 col">${stacja}</h2>
+                    <p class="item__p--grey col"><span>${data_pomiaru}</span> | <span>${godzina}</span></p>
+                </div>
+                <div class="row row__icon row-cols-2">
+                    <p class="item__icon item__icon--temp">${temperatura}C</p>
+                    <p class="item__icon item__icon--pressure">${cisnienie} hpa</p>
+                    <p class="item__icon item__icon--wind">${predkosc_wiatru} m/s</p>
+                    <p class="item__icon item__icon--rain">${opady}</p>
+                </div>
+            `;
+
+            const itemContainer = document.querySelector('.row__items');
+            itemContainer.prepend(item);
+
+        })
+    }   
+}
+
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', checkWeather);

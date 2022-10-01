@@ -94,11 +94,6 @@ html {
   font-size: 3rem;
   color: #000;
 }
-@media screen and (min-width: 768px) {
-  .heading--h2 {
-    font-size: 5rem;
-  }
-}
 
 .form {
   margin-top: 2rem;
@@ -136,7 +131,7 @@ html {
   background: #f5f5f5;
   padding: 2rem;
   border-radius: 1.5rem;
-  height: 18rem;
+  height: 22rem;
   width: 90%;
   margin: 0 auto 4rem auto;
 }
@@ -144,7 +139,6 @@ html {
   .item {
     width: 30%;
     margin: 0;
-    height: 20rem;
   }
 }
 .item__p--grey {
@@ -182,7 +176,6 @@ html {
 
 .section {
   position: relative;
-  padding-bottom: 2rem;
 }
 .section::before {
   content: "";
@@ -194,14 +187,20 @@ html {
   z-index: -1;
   transform: translate(-50%, 0);
 }
+.section__search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30vh;
+}
 .section__search::before {
   background-color: #8e7578;
 }
+.section__result {
+  min-height: 70vh;
+}
 .section__result::before {
   background-color: #b8b8b8;
-}
-.section__heading {
-  padding-top: 3rem;
 }
 
 /*# sourceMappingURL=style.css.map */

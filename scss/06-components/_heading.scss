@@ -16,9 +16,6 @@
     &--h2 {
         font-size: 3rem;
         color: $color-black;
-        @include medium {
-            font-size: 5rem;
-        }
     }
 
 }
