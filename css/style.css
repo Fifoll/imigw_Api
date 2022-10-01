@@ -162,16 +162,16 @@ html {
   transform: translate(0, -50%);
 }
 .item__icon--temp::before {
-  background: url("../../assets/thermometer.png") center/cover;
+  background: url("../assets/thermometer.png") center/cover;
 }
 .item__icon--pressure::before {
-  background: url("../../assets/pressure.png") center/cover;
+  background: url("../assets/pressure.png") center/cover;
 }
 .item__icon--wind::before {
-  background: url("../../assets/wind.png") center/cover;
+  background: url("../assets/wind.png") center/cover;
 }
 .item__icon--rain::before {
-  background: url("../../assets/rain.png") center/cover;
+  background: url("../assets/rain.png") center/cover;
 }
 
 .section {

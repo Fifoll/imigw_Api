@@ -33,16 +33,16 @@
             transform: translate(0, -50%);
         }
         &--temp::before {
-            background: url('../../assets/thermometer.png') center/cover;
+            background: url('../assets/thermometer.png') center/cover;
         }
         &--pressure::before {
-            background: url('../../assets/pressure.png') center/cover;
+            background: url('../assets/pressure.png') center/cover;
         }
         &--wind::before {
-            background: url('../../assets/wind.png') center/cover;
+            background: url('../assets/wind.png') center/cover;
         }
         &--rain::before {
-            background: url('../../assets/rain.png') center/cover;
+            background: url('../assets/rain.png') center/cover;
         }
     }
     
