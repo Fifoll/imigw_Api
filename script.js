@@ -24,15 +24,18 @@ getCities().then(data => {
     for(let i=0; i<data.length; i++) {
         const option = document.createElement('option');
         option.innerHTML = data[i].stacja;
+        const dataAttr = document.createAttribute('data-id');
+        dataAttr.value = data[i].id_stacji;
+        option.setAttributeNode(dataAttr);
         select.appendChild(option);
     }
 
 }).catch((err) => console.error(err));
 
 
-const getWeather = async city => {
+const getWeather = async id => {
     try {
-        const response = await fetch(`${baseUrl}station/${city}`);
+        const response = await fetch(`${baseUrl}id/${id}`);
 
         const data = response.json();
 
@@ -51,23 +54,11 @@ const checkWeather = e => {
 
     const selectedIndex = select.selectedIndex;
 
-    const selectedValue = select.value
-    .toLowerCase()
-    .replace(/ +/g, "")
-    .replace('ą', 'a')
-    .replace('ę', 'e')
-    .replace('ł', 'l')
-    .replace('ć', 'c')
-    .replace('ń', 'n')
-    .replace('ó', 'o')
-    .replace('ś', 's')
-    .replace('ź', 'z')
-    .replace('ż', 'z');
-
+    const selectedIdValue = select.options[selectedIndex].getAttribute('data-id');
 
     if(!(selectedIndex === 0)) {
         
-        getWeather(selectedValue).then(data => {
+        getWeather(selectedIdValue).then(data => {
 
             const { stacja } = data;
             const { temperatura } = data;
